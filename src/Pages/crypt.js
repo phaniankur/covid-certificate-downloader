@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Hex from 'crypto-js/enc-hex';
 import axios from 'axios'
+import Button from '../Components/Library/Button';
 var crypto = require('crypto-js/sha256')
 
 //import crypto from 'crypto-js'
@@ -47,9 +48,6 @@ function Crypt() {
                 <button >Krrypt</button>
             </form>
 
-        <div>
-            {crypt}
-        </div>
         </>
     )
 }
