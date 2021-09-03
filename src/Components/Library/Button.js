@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { borderRadius, height, variant } from 'styled-system'
+import { variant } from 'styled-system'
 
 const Button = styled('button')(
   {
@@ -22,7 +22,6 @@ const Button = styled('button')(
         color: 'white',
         bg: 'red',
         fontWeight: 'bold',
-        color: 'green'
       },
     }
   })
