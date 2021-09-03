@@ -8,10 +8,10 @@ function App() {
       width='100%'
       height='100vh'
       //bg='red'
-        display='flex'
-        justifyContent='center'
-        alignItems= 'center'
-        flexDirection = 'column'
+      display='flex'
+      justifyContent='center'
+      alignItems= 'center'
+      flexDirection = 'column'
     >
       <Main/>
     </Box>

@@ -35,9 +35,9 @@ function MainApp() {
             
         //console.log(res.data.txnId)
         setTxn(res.data.txnId)
-        
-        }
-        )
+        }).catch(err => {
+            console.log(err);
+        })
     }
     
     function handleOTP(e) {
@@ -102,49 +102,58 @@ function MainApp() {
     return (
         <>
         <Box
-        //bg='red'
+            fontWeight= 'bold'
+            fontSize= {['1.2rem','1.5rem']}
+            color= '#1f497d'
+        >
+            Covid Certificate Downloader
+        </Box>
+
+        <Box
+        //bg='#FFC2B8'
         width={['100%','40%']}
-        p={['0.5rem', '0rem']}
-        //height='100vh'
+        height= '40vh'
+        p={['1rem', '2rem']}
+        borderRadius= '8px'
         
         >
             <Box
-            //bg='green'
-            //p='0.5rem'
-            display='flex'
-            //justifyItems='center'
+            //bg='red'
+            display={Txn? 'none': 'flex'}
+            justifyItems='center'
             alignItems= 'center'
             flexDirection= 'column'
             >
-                <Input variant='primary' placeholder='Phone Number' onChange={handlePhone} />
+                <Input variant='primary' placeholder='Enter Phone Number' onChange={handlePhone} />
                 
                 <Button variant='primary' onClick={handleOTPgen}>Get OTP</Button>
             </Box>
             <Box
             //bg='coral'
             //p='0.5rem'
-            display='flex'
+            display= {Token? 'none': Txn? 'flex': 'none'}
+            //display={Token? 'none': 'flex'}
             alignItems= 'center'
             flexDirection= 'column'
             >
                 
-                    <Input variant='primary' placeholder='Enter OTP' onChange={handleOTP}/>
+                <Input variant='primary' placeholder='Enter OTP' onChange={handleOTP}/>
                 
                 <Button variant= 'primary' onClick={handleOtpverify}>Verify OTP</Button>
             </Box>
             <Box
             //bg='grey'
             //p='0.5rem'
-            display='flex'
+            display={Token? 'flex': 'none'}
             alignItems= 'center'
             flexDirection= 'column'
             //width='50%'
             //p='0.5rem'
             >
                 
-                    <Input variant='primary' placeholder='Enter Beneficiary ID' onChange={handleBenId}/>
+                <Input variant='primary' placeholder='Enter Beneficiary ID' onChange={handleBenId}/>
                 
-                <Button variant= 'primary' onClick={handleCert}>Submit ID</Button>
+                <Button variant= 'primary' onClick={handleCert}>Download Certificate</Button>
             </Box>
         </Box>
         

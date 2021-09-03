@@ -14,7 +14,7 @@ const Button = styled('button')(
         color: 'white',
         bg: '#1f497d',
         width:'100%',
-        height: '35px',
+        height: '40px',
         borderRadius: '8px'
       },
       
