@@ -124,7 +124,7 @@ function MainApp() {
             alignItems= 'center'
             flexDirection= 'column'
             >
-                <Input variant='primary' placeholder='Enter Phone Number' onChange={handlePhone} />
+                <Input type='number' variant='primary' placeholder='Enter Phone Number' onChange={handlePhone} />
                 
                 <Button variant='primary' onClick={handleOTPgen}>Get OTP</Button>
             </Box>
@@ -137,7 +137,7 @@ function MainApp() {
             flexDirection= 'column'
             >
                 
-                <Input variant='primary' placeholder='Enter OTP' onChange={handleOTP}/>
+                <Input type='number' variant='primary' placeholder='Enter OTP' onChange={handleOTP}/>
                 
                 <Button variant= 'primary' onClick={handleOtpverify}>Verify OTP</Button>
             </Box>
@@ -151,7 +151,7 @@ function MainApp() {
             //p='0.5rem'
             >
                 
-                <Input variant='primary' placeholder='Enter Beneficiary ID' onChange={handleBenId}/>
+                <Input type='number' variant='primary' placeholder='Enter Beneficiary ID' onChange={handleBenId}/>
                 
                 <Button variant= 'primary' onClick={handleCert}>Download Certificate</Button>
             </Box>
