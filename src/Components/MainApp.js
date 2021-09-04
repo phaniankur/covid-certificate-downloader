@@ -102,14 +102,6 @@ function MainApp() {
     return (
         <>
         <Box
-            fontWeight= 'bold'
-            fontSize= {['1.2rem','1.5rem']}
-            color= '#1f497d'
-        >
-            Covid Certificate Downloader
-        </Box>
-
-        <Box
         //bg='#FFC2B8'
         width={['100%','40%']}
         height= '40vh'
