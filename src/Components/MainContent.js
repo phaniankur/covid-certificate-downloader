@@ -5,7 +5,7 @@ import Hex from 'crypto-js/enc-hex';
 import Input from './Library/Input';
 import Box from './Library/Box'
 import Button from './Library/Button';
-import { Beneficiaries, DownloadCertificate, generateOTP, VerifyOTP } from './api';
+import { Beneficiaries, generateOTP, VerifyOTP } from './api';
 
 var crypto = require('crypto-js/sha256')
 
@@ -64,7 +64,7 @@ function MainContent() {
         token: Token
     })})
       }
-    }, [Token])
+    }, [Token, history])
 
     return (
         <>
