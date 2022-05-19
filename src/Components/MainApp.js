@@ -19,35 +19,33 @@ function MainApp() {
     function handlePhone(e) {
         setphone(e.target.value)
     }
-    
+
     const handleOTPgen= (e)=> {
         e.preventDefault()
-        
+
         axios.post('https://cdn-api.co-vin.in/api/v2/auth/public/generateOTP',
         {
             mobile: phone,
         },{
             headers: {
-            
+
             'content-type': 'application/json'
             }})
         .then(res=> {
-            
+
         //console.log(res.data.txnId)
         setTxn(res.data.txnId)
         }).catch(err => {
             console.log(err);
         })
     }
-    
+
     function handleOTP(e) {
         setotp(e.target.value)
     }
 
     const handleOtpverify = (e)=> {
-    console.log('OTP:' , otp)
-    console.log('TxnId:' , Txn)
-        
+
     e.preventDefault()
     const cr = (Hex.stringify(crypto(otp)))
 
@@ -75,7 +73,7 @@ function MainApp() {
 
     const handleCert = (e)=> {
     e.preventDefault()
-    
+
     axios.get('https://cdn-api.co-vin.in/api/v2/registration/certificate/public/download',
         {
             responseType: 'arraybuffer',
@@ -89,7 +87,7 @@ function MainApp() {
         }
     )
     .then(res=> {
-            //console.log('Certificate: ', res)
+            console.log('Certificate: ', res.data)
             var blob=new Blob([res.data], {type: "application/pdf"});// change resultByte to bytes
             var link=document.createElement('a');
             link.href=window.URL.createObjectURL(blob);
@@ -98,7 +96,7 @@ function MainApp() {
     })
     .catch(err=> console.log(err))
     }
-    
+
     return (
         <>
         <Box
@@ -107,7 +105,7 @@ function MainApp() {
         height= '40vh'
         p={['1rem', '2rem']}
         borderRadius= '8px'
-        
+
         >
             <Box
             //bg='red'
@@ -117,7 +115,7 @@ function MainApp() {
             flexDirection= 'column'
             >
                 <Input type='number' variant='primary' placeholder='Enter Phone Number' onChange={handlePhone} />
-                
+
                 <Button variant='primary' onClick={handleOTPgen}>Get OTP</Button>
             </Box>
             <Box
@@ -128,9 +126,9 @@ function MainApp() {
             alignItems= 'center'
             flexDirection= 'column'
             >
-                
+
                 <Input type='number' variant='primary' placeholder='Enter OTP' onChange={handleOTP}/>
-                
+
                 <Button variant= 'primary' onClick={handleOtpverify}>Verify OTP</Button>
             </Box>
             <Box
@@ -142,13 +140,13 @@ function MainApp() {
             //width='50%'
             //p='0.5rem'
             >
-                
+
                 <Input type='number' variant='primary' placeholder='Enter Beneficiary ID' onChange={handleBenId}/>
-                
+
                 <Button variant= 'primary' onClick={handleCert}>Download Certificate</Button>
             </Box>
         </Box>
-        
+
         </>
     )
 }
